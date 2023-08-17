@@ -2,6 +2,7 @@
 #define CLIENTE_HPP
 
 #include <boost/math/constants/constants.hpp>
+#include <vector>
 #include "Pessoa.hpp"
 #include "Conta.hpp"
 
@@ -14,7 +15,7 @@ class Cliente : public Pessoa{
         void adicionarConta(const Conta novaConta);
 
         const std::vector<Conta>& getContas() const;
-         
+
     private:
         unsigned int id;
         std::string contato;
