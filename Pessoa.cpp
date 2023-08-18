@@ -3,6 +3,7 @@
 
 
 Pessoa::Pessoa(){}
+Pessoa::~Pessoa(){}
 
 Pessoa::Pessoa(const std::string& nome, const unsigned short int idade, const unsigned long cpf): nome{nome}{
     this->setIdade(idade);

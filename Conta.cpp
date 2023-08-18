@@ -1,43 +1,48 @@
 #include <iostream>
-#include <boost/math/constants/constants.hpp>
 #include <string>
 #include "Conta.hpp"
+//#include "Cliente.hpp"
 
-using boost::multiprecision::cpp_dec_float_50;
 
-ContaBancaria::ContaBancaria(){}
 
-ContaBancaria::ContaBancaria(const cpp_dec_float_50 saldo, const cpp_dec_float_50 credito, const cpp_dec_float_50 fatura, const std::string& tipoConta):
-saldo{saldo}, credito{credito}, fatura{0}, tipoConta{tipoConta}{
+ContaBancaria::ContaBancaria(const Cliente& cliente):cliente(cliente){}
+ContaBancaria::~ContaBancaria(){}
+
+ContaBancaria::ContaBancaria(const float saldo, const float credito, const float fatura, const std::string& tipoConta, const Cliente& client):
+saldo{saldo}, credito{credito}, fatura{0}, tipoConta{tipoConta}, cliente(client){
 
 }
 
-cpp_dec_float_50 ContaBancaria::getSaldo() const{
+float ContaBancaria::getSaldo() const{
     return this->saldo;
 }
 
-void ContaBancaria::setSaldo(const cpp_dec_float_50 valor){
-    this->saldo = *this + valor;
+void ContaBancaria::setSaldo(const float valor){
+    this->saldo = this->saldo + valor;
 }
 
-cpp_dec_float_50 ContaBancaria::getCredito() const{
+float ContaBancaria::getCredito() const{
     return this->credito;
 }
 
-void ContaBancaria::setFatura(const cpp_dec_float_50 valor){
-    this->fatura = *this + fatura
+void ContaBancaria::setFatura(const float valor){
+    this->fatura = this->fatura + fatura;
 }
 
-cpp_dec_float_50 ContaBancaria::getFatura() const{
+float ContaBancaria::getFatura() const{
     return this->fatura;
 }
 
-void ContaBancaria::Depositar(const cpp_dec_float_50 valor){
-    this->saldo = *this + valor;
+void ContaBancaria::Depositar(const float valor){
+    this->saldo = this->saldo + valor;
 }
 
-void ContaBancaria::Sacar(const cpp_dec_float_50 valor){
-    this->saldo = *this - valor;
+void ContaBancaria::Sacar(const float valor){
+    this->saldo = this->saldo - valor;
+}
+
+void Cliente* ContaBancaria::getCliente() const{
+    return &cliente;
 }
 
 //tranferir()

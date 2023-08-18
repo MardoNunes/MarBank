@@ -1,36 +1,41 @@
 #ifndef CONTA_HPP
 #define CONTA_HPP
 
-#include <boost/math/constants/constants.hpp>
+#include "Cliente.hpp"
 
 
+class Cliente;
 class ContaBancaria{
     public:
-        ContaBancaria();
-        ContaBancaria(const cpp_dec_float_50 saldo, const cpp_dec_float_50 credito, const cpp_dec_float_50 fatura, const std::string& tipoConta);
+        ContaBancaria(const Cliente& cliente);
+        ContaBancaria(const float saldo, const float credito, const float fatura, const std::string& tipoConta, const Cliente& client);
         ~ContaBancaria();
 
-        cpp_dec_float_50 getSaldo() const;
-        void setSaldo(cpp_dec_float_50 valor);
+        const Cliente* getCliente() const;
 
-        void transferir(const cpp_dec_float_50 valor);
-        void pix(const cpp_dec_float_50 valor); //pix tem um limite máximo no valor!
+        float getSaldo() const;
+        void setSaldo(float valor);
+
+        void transferir(const float valor);
+        void pix(const float valor); //pix tem um limite máximo no valor!
         
-        cpp_dec_float_50 getCredito() const;    //quanto de credito eu tenho, n gastos!
-        void setFatura( const cpp_dec_float_50 valor);  //acrescenta valore a fatura;
-        cpp_dec_float_50 getFatura() const; //quanto de credito gastos!
+        float getCredito() const;    //quanto de credito eu tenho, n gastos!
+        void setFatura( const float valor);  //acrescenta valore a fatura;
+        float getFatura() const; //quanto de credito gastos!
 
 
-        void Depositar(const cpp_dec_float_50 valor);
-        void Sacar(const cpp_dec_float_50 valor);
+        void Depositar(const float valor);
+        void Sacar(const float valor);
         //implementar uma função para ver sua key!
 
     private:
         unsigned long key;  //será usada para transações
-        cpp_dec_float_50 saldo;
-        cpp_dec_float_50 credito;
-        cpp_dec_float_50 fatura;
+        float saldo;
+        float credito;
+        float fatura;
         std::string tipoConta; //posso tentar fazer um enumeration;
+
+        const Cliente& cliente;
 
 };
 
