@@ -1,45 +1,46 @@
 #include <iostream>
 #include "Pessoa.hpp"
 
-
 Pessoa::Pessoa(){}
+Pessoa::Pessoa(const std::string& nome, const unsigned short idade): nome{nome}{
+	this->setIdade(idade);
+}
+Pessoa::Pessoa(const std::string& nome, const unsigned short idade, const unsigned long cpf): Pessoa(nome, idade) {
+	this->setCpf(cpf);
+}
+
 Pessoa::~Pessoa(){}
 
-Pessoa::Pessoa(const std::string& nome, const unsigned short int idade, const unsigned long cpf): nome{nome}{
-    this->setIdade(idade);
-    this->setCpf(cpf);
+std::string Pessoa::getNome() const{
+	return this->nome;
+}
 
+unsigned short Pessoa::getIdade() const{
+	return this->idade;
 }
 
 unsigned long Pessoa::getCpf() const{
-    return this->cpf;
-}
-
-void Pessoa::setCpf(unsigned long cpf){
-    if(!validarCPF(cpf))
-        throw (int)1;
-    this->cpf = cpf;
-}
-
-std::string Pessoa::getNome() const{
-    return this->nome;
+	return this->cpf;
 }
 
 void Pessoa::setNome(const std::string& nome){
-    this->nome = nome;
+	this->nome = nome;
 }
 
-unsigned short int Pessoa::getIdade() const{
-    return (unsigned short int)idade;
-}
-
-void Pessoa::setIdade(const unsigned short int novaIdade){
-	if(novaIdade > 120)
+void Pessoa::setIdade(const unsigned short idade){
+	if(idade > 120)
 		throw (int)1;
-	idade = (unsigned char)novaIdade;
+	this->idade = idade;
+}
+
+void Pessoa::setCpf(unsigned long cpfTeste){
+	if(!validarCPF(cpfTeste))
+		throw (int)1;
+	this->cpf = cpfTeste;
 }
 
 bool Pessoa::validarCPF(unsigned long cpfTeste) const{
+
 	int somatorioValidaUltimo;
 	int modulo;
 	int somatorioValidaPenultimo = 0;
@@ -73,3 +74,5 @@ bool Pessoa::validarCPF(unsigned long cpfTeste) const{
 	}
 	return true;//cpf valido
 }
+
+

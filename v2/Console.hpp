@@ -3,8 +3,8 @@
 
 class Console{
 	public:
-		static void menu();
-		static void contaBancaria();
+		static void iniciar();
+		static void menuConta();
 };
 
 

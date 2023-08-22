@@ -1,6 +1,8 @@
 #include <iostream>
 #include "ContaBancaria.hpp"
 #include "Console.hpp"
+#include "Pessoa.hpp"
+
 
 using namespace std;
 
@@ -30,8 +32,23 @@ int main(){
 			std::cout << "Erro desconhecido!!" << std::endl;
 	}
 
-	Console::menu();
+	
+	Pessoa p1{"Mardo", 20, 11111111111};
+	std::cout << "Nome: " << p1.getNome() << std::endl;
+	std::cout << "Idade: " << p1.getIdade() << std::endl;
+	std::cout << "CPF: " << p1.getCpf() << std::endl;
 
-    
+	Pessoa p2;
+	p2.setNome("Maria");
+	p2.setIdade(35);
+	p2.setCpf(11111111111);
+
+	std::cout << "Nome: " << p2.getNome() << std::endl;
+	std::cout << "Idade: " << p2.getIdade() << std::endl;
+	std::cout << "CPF: " << p2.getCpf() << std::endl;
+
+
+
+	//Console::menu();
     return 0;
 }
