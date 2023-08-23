@@ -3,7 +3,7 @@
 
 
 ContaBancaria::ContaBancaria() {}
-ContaBancaria::ContaBancaria(const std::string nome): nome{nome} {}
+ContaBancaria::ContaBancaria(const std::string nome): nome{nome}{}
 ContaBancaria::ContaBancaria(const std:: string nome, const unsigned long numeroConta, const float saldo): nome{nome}, numeroConta{numeroConta}, saldo{saldo}{
 }
 ContaBancaria::~ContaBancaria() {}

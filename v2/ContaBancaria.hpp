@@ -1,11 +1,13 @@
 #ifndef CONTA_BANCARIA_HPP
 #define CONTA_BANCARIA_HPP
 
+#include "Pessoa.hpp"
+
 class ContaBancaria{
 	public:
 		ContaBancaria();
 		ContaBancaria(const std::string nome, const unsigned long numeroConta, const float saldo);
-		ContaBancaria(const std::string nome);
+		ContaBancaria(const std::string noem);
 		~ContaBancaria();
 
 		unsigned long getNumeroConta() const;
@@ -18,6 +20,7 @@ class ContaBancaria{
 		void setNome(const std::string nome);
 
 		void sacar(const float valor); 
+		void gerarNumero();
 
 	private:
 		std::string nome;
