@@ -2,7 +2,8 @@
 #define BANCO_HPP
 
 #include <set>
-#include "Cliente.hpp"
+
+class Cliente;
 
 class Banco{
     public:
@@ -10,11 +11,13 @@ class Banco{
         ~Banco();
 
 
-        void adicionaClinte();
-        std::set<Cliente*>& getCliente() const;
+        void adicionaClinte(Cliente* cliente);
+        void showClientes();
 
     private:
+        //um set de ponteiros para clientes
         std::set<Cliente*> clientes;
+       
 
 };
 

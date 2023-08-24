@@ -2,7 +2,6 @@
 #define CLIENTE_HPP
 
 #include "Pessoa.hpp"
-//#include "ContaBancaria.hpp"
 
 
 class ContaBancaria;
@@ -19,7 +18,7 @@ class Cliente : public Pessoa{
 
 	
 	private:
-		ContaBancaria* conta;
+		ContaBancaria* conta;	//ponteiro para a conta bancaria do cliente
 };
 
 
