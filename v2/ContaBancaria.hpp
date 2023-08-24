@@ -1,7 +1,9 @@
 #ifndef CONTA_BANCARIA_HPP
 #define CONTA_BANCARIA_HPP
 
-#include "Pessoa.hpp"
+#include "Cliente.hpp"
+
+
 
 class ContaBancaria{
 	public:
@@ -26,6 +28,8 @@ class ContaBancaria{
 		std::string nome;
 		unsigned long numeroConta;	//numero realizado para transasções
 		float saldo;
+
+		//Cliente* cliente;
 };
 
 

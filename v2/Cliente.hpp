@@ -1,9 +1,11 @@
 #ifndef CLIENTE_HPP
 #define CLIENTE_HPP
 
-#include <set>
 #include "Pessoa.hpp"
-#include "ContaBancaria.hpp"
+//#include "ContaBancaria.hpp"
+
+
+class ContaBancaria;
 
 class Cliente : public Pessoa{
 	public:
@@ -13,11 +15,11 @@ class Cliente : public Pessoa{
 		
 
 		void adicionaConta( ContaBancaria* conta);
-		std::set<ContaBancaria*>& getConta();
+		ContaBancaria* getConta();
 
 	
 	private:
-		std::set<ContaBancaria*> contas;
+		ContaBancaria* conta;
 };
 
 

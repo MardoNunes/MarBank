@@ -2,8 +2,9 @@
 #define PESSOA_HPP
 
 #include <string>
-#include "ContaBancaria.hpp"
 
+
+class ContaBancaria;
 
 class Pessoa{
     public:
