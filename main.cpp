@@ -16,11 +16,18 @@ int main(){
 	
 
 	//adicionar um clinte ao banco
+	ContaBancaria* cb = new ContaBancaria{"Joao", 2, 400};
 	Banco b1;
-	Cliente* c1 = new Cliente{"Joao", 20, 1111111111};
+ 	Cliente* c1 = new Cliente{"Joao", 20, 1111111111};
 	
+ 	Cliente* c2 = new Cliente{"Maria", 25, 1111111111};
+	
+ 	Cliente* c3 = new Cliente{"Carlos", 32, 1111111111};
+
 	b1.adicionaClinte(c1);
-	
+	b1.adicionaClinte(c2);
+	b1.adicionaClinte(c3);
+
 	b1.showClientes();
 	
 	
