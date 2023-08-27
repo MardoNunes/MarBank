@@ -8,58 +8,63 @@
 #include "Pessoa.hpp"
 #include "Cliente.hpp"
 #include "Banco.hpp"
+#include "Criador.hpp"
 
 using namespace std;
 
 int main(){
+	 Console::iniciar();
+	 short opc;
+	 std::cout << "Entre com sua opção: ";
+	 std::cin >> opc;
+	 std::cout << "opção: " << opc << std::endl;
 
-	
+	 switch(opc){
+	 	case 1:{
+	 		std::cout << "Criar conta" << std::endl;
+			Criador c;
+			Cliente* ptrC = new Cliente; //ponteiro para um cliente
+			ContaBancaria* ptrCB = new ContaBancaria; //ponteiro para uma conta
 
-	//adicionar um clinte ao banco
-	ContaBancaria* cb = new ContaBancaria{"Joao", 2, 400};
-	Banco b1;
- 	Cliente* c1 = new Cliente{"Joao", 20, 1111111111};
-	
- 	Cliente* c2 = new Cliente{"Maria", 25, 1111111111};
-	
- 	Cliente* c3 = new Cliente{"Carlos", 32, 1111111111};
+			c.criarConta(ptrC, ptrCB); //passo esses ponteiros e atribuo valores aonde apotam
 
-	b1.adicionaClinte(c1);
-	b1.adicionaClinte(c2);
-	b1.adicionaClinte(c3);
-
-	b1.showClientes();
-	
-	
-
-	delete c1;
-
-
-
+			ptrC->adicionaConta(ptrCB); //cliente recebe sua conta criada
+			
+	 		//ao criar deve ser automaticamente logado
+		
+	 		break;
+		       }
+	 	case 2:
+		       {
+			Cliente c{"Mardo", 20, 11111111111};
+			ContaBancaria cb;
+			cb.setSaldo(400);
+			c.adicionaConta(&cb);
 
 
-	// Console::iniciar();
 
-	// short opc;
-	// std::cout << "Entre com sua opção: ";
-	// std::cin >> opc;
-	// std::cout << "opção: " << opc << std::endl;
-
-	// switch(opc){
-	// 	case 1:
-	// 		std::cout << "Criar conta" << std::endl;
-	// 		//devo instanciar um cliente
-	// 		//instanciar um conta bancria
-	// 		//e vincular conta com cliente e cliente com banco!
-	// 		//ao criar deve ser automaticamente logado
-	// 		break;
-	// 	case 2:
-	// 		std::cout << "Logim en conta" << std::endl;
-	// 		//n sei como sera o logim, acredito q apenas o cpf
-	// 		break;
-	// 	default:
-	// 		std::cout << "Entrada inválida!" << std::endl;
-	//}
+	 		std::cout << "Login: " << std::endl;
+	 		//n sei como sera o logim, acredito q apenas o cpf
+			Banco bank;
+			bank.adicionaCliente(&c);
+			unsigned long cpf;
+			const Cliente* ptrC;
+			std::cout << "Entre com o seu CPF: ";	
+			std::cin >> cpf;
+			try{
+				ptrC = bank.buscaCliente(cpf);
+				//colocar tela menuContaBancaria
+				//tratar as entradas
+			}
+			catch(int& ex){
+				if(ex == 1)
+					std::cout << "Login inválido!" << std::endl;
+			}
+			break;
+		       }
+	 	default:
+	 		std::cout << "Entrada inválida!" << std::endl;
+	}
 
 
 

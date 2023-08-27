@@ -8,9 +8,7 @@ class ContaBancaria;
 
 class Cliente : public Pessoa{
 	public:
-		Cliente();
-		Cliente(const std::string& nome, const unsigned short idade, const unsigned long cpf);
-		~Cliente();
+		using Pessoa::Pessoa;	//usa o msm construtor;
 		
 
 		void adicionaConta( ContaBancaria* conta);

@@ -9,7 +9,7 @@ class ContaBancaria{
 	public:
 		ContaBancaria();
 		ContaBancaria(const std::string nome, const unsigned long numeroConta, const float saldo);
-		ContaBancaria(const std::string noem);
+		ContaBancaria(const std::string nome);
 		~ContaBancaria();
 
 		unsigned long getNumeroConta() const;
@@ -29,7 +29,6 @@ class ContaBancaria{
 		unsigned long numeroConta;	//numero realizado para transasções
 		float saldo;
 
-		//Cliente* cliente;
 };
 
 

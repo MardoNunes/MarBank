@@ -11,7 +11,8 @@ class Banco{
         ~Banco();
 
 
-        void adicionaClinte(Cliente* cliente);
+        void adicionaCliente(Cliente* cliente);
+	const Cliente* buscaCliente(unsigned long cpf);
         void showClientes();
 
     private:
