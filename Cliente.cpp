@@ -1,7 +1,7 @@
 #include <iostream>
-#include <list>
-#include "Cliente.hpp"
 
+#include "Cliente.hpp"
+#include "ContaBancaria.hpp"
 
 
 void Cliente::adicionaConta(ContaBancaria* conta){
@@ -10,6 +10,6 @@ void Cliente::adicionaConta(ContaBancaria* conta){
 
 
 
-ContaBancaria* Cliente::getConta(){
+ContaBancaria* Cliente::getConta() const{
 	return this->conta;
 }

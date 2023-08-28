@@ -40,6 +40,10 @@ int main(){
 			ContaBancaria cb;
 			cb.setSaldo(400);
 			c.adicionaConta(&cb);
+			Cliente c1{"Maria", 35, 12203328959};
+			ContaBancaria cb1;
+			cb1.setSaldo(4000);
+			c1.adicionaConta(&cb1);
 
 
 
@@ -47,12 +51,18 @@ int main(){
 	 		//n sei como sera o logim, acredito q apenas o cpf
 			Banco bank;
 			bank.adicionaCliente(&c);
+			bank.adicionaCliente(&c1);
 			unsigned long cpf;
 			const Cliente* ptrC;
 			std::cout << "Entre com o seu CPF: ";	
 			std::cin >> cpf;
 			try{
 				ptrC = bank.buscaCliente(cpf);
+				ContaBancaria* ptrCB;
+				ptrCB = ptrC->getConta();
+				std::cout << ptrC->getNome() <<" "<<ptrCB->getSaldo() << std::endl;
+			       	ptrCB->setSaldo(50);
+		       		std::cout << ptrCB->getSaldo() << std::endl;	       
 				//colocar tela menuContaBancaria
 				//tratar as entradas
 			}

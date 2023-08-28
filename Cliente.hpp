@@ -12,7 +12,7 @@ class Cliente : public Pessoa{
 		
 
 		void adicionaConta( ContaBancaria* conta);
-		ContaBancaria* getConta();
+		ContaBancaria* getConta() const;
 
 	
 	private:
