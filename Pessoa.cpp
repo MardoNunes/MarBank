@@ -28,7 +28,7 @@ void Pessoa::setNome(const std::string& nome){
 }
 
 void Pessoa::setIdade(const unsigned short idade){
-	if(idade > 120)
+	if(idade < 18)
 		throw (int)1;
 	this->idade = idade;
 }

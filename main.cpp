@@ -16,6 +16,9 @@ int main(){
 	//BANCO DEVE SER INSTANCIADO AQ
 	Banco bank;
 
+	//529.982.247-25 cpf valido
+
+
 	 Console::iniciar();
 	 short opc;
 	 std::cout << "Entre com sua opção: ";
@@ -87,6 +90,13 @@ int main(){
 									std::cout << "Saldo insuficiente!" << std::endl;
 							}
 							break;
+						}
+						case 4:
+						{
+							//realizar transações
+							//encotrar conta bancaria destino, procurar pelo numero da conta
+							//e passa as duas contas, a atula(origem) e a destino(acabei de procurar)
+							//e realiza a transação
 						}
 						default:
 							std::cout << "Entrada inválida!2" << std::endl;

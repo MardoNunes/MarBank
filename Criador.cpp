@@ -17,13 +17,23 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	unsigned short idade;
 	std::cout << "Sua idade: ";
 	std::cin >> idade;
-	c->setIdade(idade);
+	try{
+		c->setIdade(idade);
+	}catch(int e){
+		std::cout << "Idade invalida" << std::endl;
+		exit(1);
+	}
 	std::cout << std::endl;
 
 	unsigned long cpf;
 	std::cout << "Seu CPF: ";
 	std::cin >> cpf;
-	c->setCpf(cpf);	
+	try{
+		c->setCpf(cpf);	
+	}catch(int e){
+		std::cout << "CPF invalido" << std::endl;
+		exit(1);
+	}
 	std::cout << std::endl;
 
 	float valor;

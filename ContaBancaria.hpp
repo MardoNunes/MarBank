@@ -2,10 +2,11 @@
 #define CONTA_BANCARIA_HPP
 
 #include "Cliente.hpp"
-
+#include "Banco.hpp"
 
 
 class ContaBancaria{
+
 	public:
 		ContaBancaria();
 		ContaBancaria(const std::string nome, const unsigned long numeroConta, const float saldo);
