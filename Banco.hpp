@@ -12,7 +12,7 @@ class Banco{
 
 
         void adicionaCliente(Cliente* cliente);
-	const Cliente* buscaCliente(unsigned long cpf);
+	    const Cliente* buscaCliente(unsigned long cpf);
         void showClientes();
 
     private:

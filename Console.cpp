@@ -28,7 +28,8 @@ void Console::iniciar(){
 	std::cout << std::endl;
 	std::cout << "1 - Criar uma Conta" << std::endl;
 	std::cout << "2 - Fazer Login" << std::endl;
-	std::cout << "3 - Sair" << std::endl;
+	std::cout << "3 - Listar Clientes" << std::endl;
+	std::cout << "4 - Sair" << std::endl;
 	std::cout << std::endl;
 }
 

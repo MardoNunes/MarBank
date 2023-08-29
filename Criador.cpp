@@ -31,4 +31,7 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	std::cin >> valor;
 	cb->setSaldo(valor);
 	std::cout << std::endl;
+
+	//gera um numero aleatorio para a conta
+	cb->gerarNumero();
 }

@@ -21,6 +21,8 @@ float ContaBancaria::getSaldo() const{
 }
 
 void ContaBancaria::setSaldo(const float valor){
+	if(valor < 0)
+		throw (int)1;
 	this->saldo = this->saldo + valor;
 }
 
@@ -36,6 +38,10 @@ void ContaBancaria::sacar(const float valor){
 	if(valor > this->saldo)
 		throw (int)1;
 	this->saldo = this->saldo - valor;
+}
+
+void ContaBancaria::gerarNumero(){
+	this->numeroConta = rand() % 100000;
 }
 
 
