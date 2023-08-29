@@ -23,8 +23,8 @@ int main(){
 	 	case 1:{
 	 		std::cout << "Criar conta" << std::endl;
 			Criador c;
-			Cliente* ptrC = new Cliente; //ponteiro para um cliente
-			ContaBancaria* ptrCB = new ContaBancaria; //ponteiro para uma conta
+			Cliente* ptrC{new Cliente}; //ponteiro para um cliente
+			ContaBancaria* ptrCB{new ContaBancaria}; //ponteiro para uma conta
 
 			c.criarConta(ptrC, ptrCB); //passo esses ponteiros e atribuo valores aonde apotam
 
@@ -40,7 +40,7 @@ int main(){
 			ContaBancaria cb;
 			cb.setSaldo(400);
 			c.adicionaConta(&cb);
-			Cliente c1{"Maria", 35, 12203328959};
+			Cliente c1{"Maria", 35, 52998224725};
 			ContaBancaria cb1;
 			cb1.setSaldo(4000);
 			c1.adicionaConta(&cb1);

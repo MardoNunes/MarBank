@@ -8,7 +8,7 @@ class Cliente;
 class Banco{
     public:
         Banco();
-        ~Banco();
+        virtual ~Banco();
 
 
         void adicionaCliente(Cliente* cliente);

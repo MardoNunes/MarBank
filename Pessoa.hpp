@@ -9,9 +9,9 @@ class ContaBancaria;
 class Pessoa{
     public:
         Pessoa();
-	Pessoa(const std::string& nome, const unsigned short idade);
+	    Pessoa(const std::string& nome, const unsigned short idade);
         Pessoa(const std::string& nome, const unsigned short idade, const unsigned long cpf);
-        ~Pessoa();
+        virtual ~Pessoa();
 
 
         std::string getNome() const;
