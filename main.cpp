@@ -44,7 +44,7 @@ int main(){
 				Console::menuConta();
 				std::cout << "Entre com sua opção: ";
 				std::cin >> opc;
-				while(opc != 4){
+				while(opc != 5){
 					switch(opc){
 						case 1:
 						{
@@ -93,10 +93,23 @@ int main(){
 						}
 						case 4:
 						{
-							//realizar transações
-							//encotrar conta bancaria destino, procurar pelo numero da conta
-							//e passa as duas contas, a atula(origem) e a destino(acabei de procurar)
-							//e realiza a transação
+							unsigned long numeroConta;
+							const Cliente* ptrC2;
+							std::cout << "Entre com o numero da conta: ";
+							std::cin >> numeroConta;
+							ptrC2 = bank.buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+							ContaBancaria* ptrCB2;
+							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
+							float valor;
+							std::cout << "Entre com o valor da transferência: ";
+							std::cin >> valor;
+							bank.transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+
+							break;
+						}
+						case 5:
+						{
+							break;
 						}
 						default:
 							std::cout << "Entrada inválida!2" << std::endl;
@@ -131,7 +144,7 @@ int main(){
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
 					std::cin >> opc;
-					while(opc != 4){
+					while(opc != 5){
 						switch(opc){
 							case 1:
 							{
@@ -176,6 +189,26 @@ int main(){
 									if(ex == 1)
 										std::cout << "Saldo insuficiente!" << std::endl;
 								}
+								break;
+							}
+							case 4:
+							{
+							unsigned long numeroConta;
+							const Cliente* ptrC2;
+							std::cout << "Entre com o numero da conta: ";
+							std::cin >> numeroConta;
+							ptrC2 = bank.buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+							ContaBancaria* ptrCB2;
+							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
+							float valor;
+							std::cout << "Entre com o valor da transferência: ";
+							std::cin >> valor;
+							bank.transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+
+							break;
+							}
+							case 5:
+							{
 								break;
 							}
 							default:
