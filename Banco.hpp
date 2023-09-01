@@ -2,6 +2,7 @@
 #define BANCO_HPP
 
 #include <set>
+#include <stdint.h>
 #include "ContaBancaria.hpp"    
 
 class Cliente;
@@ -13,7 +14,7 @@ class Banco{
 
 
         void adicionaCliente(Cliente* cliente);
-	    const Cliente* buscaCliente(unsigned long cpf);
+	    const Cliente* buscaCliente(const uint32_t cpf);
         void showClientes();
         const Cliente* buscaClienteNumeroConta(unsigned long numeroConta);
         void transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, float valor);

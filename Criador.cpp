@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdint>
+
 #include "Criador.hpp"
 #include "ContaBancaria.hpp"
 #include "Pessoa.hpp"
@@ -19,18 +21,18 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	std::cin >> idade;
 	try{
 		c->setIdade(idade);
-	}catch(int e){
+	}catch(int& e){
 		std::cout << "Idade invalida" << std::endl;
 		exit(1);
 	}
 	std::cout << std::endl;
 
-	unsigned long cpf;
+	uint32_t cpf;
 	std::cout << "Seu CPF: ";
 	std::cin >> cpf;
 	try{
 		c->setCpf(cpf);	
-	}catch(int e){
+	}catch(int& ex){
 		std::cout << "CPF invalido" << std::endl;
 		exit(1);
 	}

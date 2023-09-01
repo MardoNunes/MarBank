@@ -3,6 +3,7 @@
 #include <set>
 
 
+
 #include "ContaBancaria.hpp"
 #include "Console.hpp"
 #include "Pessoa.hpp"
@@ -14,7 +15,7 @@ using namespace std;
 
 int main(){
 	//BANCO DEVE SER INSTANCIADO AQ
-	Banco bank;
+	Banco* bank{new Banco};
 
 	//529.982.247-25 cpf valido
 
@@ -38,7 +39,7 @@ int main(){
 				ptrC->adicionaConta(ptrCB); //cliente recebe sua conta criada
 
 				//banco recebe o cliente
-				bank.adicionaCliente(ptrC);
+				bank->adicionaCliente(ptrC);
 
 				system("clear");
 				Console::menuConta();
@@ -97,13 +98,13 @@ int main(){
 							const Cliente* ptrC2;
 							std::cout << "Entre com o numero da conta: ";
 							std::cin >> numeroConta;
-							ptrC2 = bank.buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+							ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
 							ContaBancaria* ptrCB2;
 							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
 							float valor;
 							std::cout << "Entre com o valor da transferência: ";
 							std::cin >> valor;
-							bank.transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
 
 							break;
 						}
@@ -129,12 +130,12 @@ int main(){
 			       {
 			
 		 		std::cout << "Login: " << std::endl;
-				unsigned long cpf;
+				uint32_t cpf;
 				const Cliente* ptrC;
 				std::cout << "Entre com o seu CPF: ";	
 				std::cin >> cpf;
 				try{
-					ptrC = bank.buscaCliente(cpf);
+					ptrC = bank->buscaCliente(cpf);
 					ContaBancaria* ptrCB;
 					ptrCB = ptrC->getConta();
 					       
@@ -197,13 +198,13 @@ int main(){
 							const Cliente* ptrC2;
 							std::cout << "Entre com o numero da conta: ";
 							std::cin >> numeroConta;
-							ptrC2 = bank.buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+							ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
 							ContaBancaria* ptrCB2;
 							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
 							float valor;
 							std::cout << "Entre com o valor da transferência: ";
 							std::cin >> valor;
-							bank.transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
 
 							break;
 							}
@@ -230,7 +231,7 @@ int main(){
 			       }
 			case 3:
 			{
-				bank.showClientes();
+				bank->showClientes();
 			}
 		 	default:
 		 		std::cout << "Entrada inválida! 1" << std::endl;

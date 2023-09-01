@@ -1,5 +1,7 @@
 #include <iostream>
 #include <set>
+#include <cstdint>
+
 #include "Banco.hpp"
 #include "Cliente.hpp"
 #include "ContaBancaria.hpp"
@@ -26,11 +28,12 @@ void Banco::showClientes(){
     for(; it != clientes.end(); it++){
 		ptrC = (*it)->getConta();
  		std::cout << "Cliente ["<< cont << "]" << " " <<(*it)->getNome() << " " << (*it)->getIdade() << " " << ptrC->getNumeroConta() << std::endl;
+		cont++;
 	 
     }
 }
 
-const Cliente* Banco::buscaCliente(unsigned long cpf){
+const Cliente* Banco::buscaCliente(const uint32_t cpf){
 	std::set<Cliente*>::iterator it{clientes.begin()};
 	for(; it != clientes.end(); it++){
 		if((*it)->getCpf() == cpf)
