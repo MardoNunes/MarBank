@@ -29,7 +29,8 @@ int main(){
 	while(opc != 4){
 		 switch(opc){
 		 	case 1:{
-		 		std::cout << "Criar conta" << std::endl;
+				system("clear");
+		 		std::cout << "Criar conta:" << std::endl;
 				Criador c;
 				Cliente* ptrC{new Cliente}; //ponteiro para um cliente
 				ContaBancaria* ptrCB{new ContaBancaria}; //ponteiro para uma conta
@@ -130,7 +131,7 @@ int main(){
 			       {
 			
 		 		std::cout << "Login: " << std::endl;
-				uint32_t cpf;
+				unsigned long cpf;
 				const Cliente* ptrC;
 				std::cout << "Entre com o seu CPF: ";	
 				std::cin >> cpf;
@@ -198,13 +199,19 @@ int main(){
 							const Cliente* ptrC2;
 							std::cout << "Entre com o numero da conta: ";
 							std::cin >> numeroConta;
-							ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
-							ContaBancaria* ptrCB2;
-							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
-							float valor;
-							std::cout << "Entre com o valor da transferência: ";
-							std::cin >> valor;
-							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+							
+							try{
+								ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+								ContaBancaria* ptrCB2;
+								ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
+								float valor;
+								std::cout << "Entre com o valor da transferência: ";
+								std::cin >> valor;
+								bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+							}catch(int& ex){
+								if(ex == 1)
+									std::cout << "Conta não encontrada!" << std::endl;
+							}
 
 							break;
 							}
@@ -224,8 +231,10 @@ int main(){
 				}
 				}
 				catch(int& ex){
-					if(ex == 1)
+					if(ex == 1){
 						std::cout << "Login inválido!" << std::endl;
+						break;
+					}
 				}
 				break;
 			       }

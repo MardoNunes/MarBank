@@ -14,7 +14,7 @@ class Banco{
 
 
         void adicionaCliente(Cliente* cliente);
-	    const Cliente* buscaCliente(const uint32_t cpf);
+	    const Cliente* buscaCliente(const unsigned long cpf);
         void showClientes();
         const Cliente* buscaClienteNumeroConta(unsigned long numeroConta);
         void transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, float valor);

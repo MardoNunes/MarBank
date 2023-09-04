@@ -33,7 +33,7 @@ void Banco::showClientes(){
     }
 }
 
-const Cliente* Banco::buscaCliente(const uint32_t cpf){
+const Cliente* Banco::buscaCliente(const unsigned long cpf){
 	std::set<Cliente*>::iterator it{clientes.begin()};
 	for(; it != clientes.end(); it++){
 		if((*it)->getCpf() == cpf)

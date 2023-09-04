@@ -5,6 +5,8 @@
 #include "ContaBancaria.hpp"
 #include "Pessoa.hpp"
 
+
+
 Criador::Criador(){}
 Criador::~Criador(){}
 
@@ -12,7 +14,8 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	
 	std::string nome;
 	std::cout << "Seu nome: ";
-	std::cin >> nome;
+	std::cin.ignore();
+	std::getline(std::cin, nome);
 	c->setNome(nome);
 	std::cout << std::endl;
 	
@@ -22,15 +25,16 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	try{
 		c->setIdade(idade);
 	}catch(int& e){
-		std::cout << "Idade invalida" << std::endl;
+		std::cout << "Deve ser de maior!!" << std::endl;
 		exit(1);
 	}
 	std::cout << std::endl;
 
-	uint32_t cpf;
+	unsigned long cpf;
 	std::cout << "Seu CPF: ";
 	std::cin >> cpf;
 	try{
+		std::cout << "cpf: " << cpf << std::endl;
 		c->setCpf(cpf);	
 	}catch(int& ex){
 		std::cout << "CPF invalido" << std::endl;

@@ -6,7 +6,7 @@ Pessoa::Pessoa(){}
 Pessoa::Pessoa(const std::string& nome, const unsigned short idade): nome{nome}{
 	this->setIdade(idade);
 }
-Pessoa::Pessoa(const std::string& nome, const unsigned short idade, const uint32_t cpf): Pessoa(nome, idade) {
+Pessoa::Pessoa(const std::string& nome, const unsigned short idade, const unsigned long cpf): Pessoa(nome, idade) {
 	this->setCpf(cpf);
 }
 
@@ -20,7 +20,7 @@ unsigned short Pessoa::getIdade() const{
 	return this->idade;
 }
 
-uint32_t Pessoa::getCpf() const{
+unsigned long Pessoa::getCpf() const{
 	return this->cpf;
 }
 
@@ -34,62 +34,29 @@ void Pessoa::setIdade(const unsigned short idade){
 	this->idade = idade;
 }
 
-void Pessoa::setCpf(uint32_t cpfTeste){
+void Pessoa::setCpf(const unsigned long cpfTeste){
+    
 	if(!validarCPF(cpfTeste))
 		throw (int)1;
 	this->cpf = cpfTeste;
 }
 
-bool Pessoa::validarCPF(uint32_t cpf) const{
-    
-    uint32_t somatorioValidaUltimo;
-    uint32_t modulo;
-    uint32_t somatorioValidaPenultimo{0};
-    uint32_t ultimo{(uint32_t)(cpf % 10)};
-    cpf /= 10;
-    uint32_t penultimo{(uint32_t)(cpf % 10)};
-    cpf /= 10;
+//so verefica se possui 11 digitos, para não se preocupar com os digitos verificadores
+bool Pessoa::validarCPF(unsigned long cpf) const{
+    unsigned int cont{0};
 
-    somatorioValidaUltimo = penultimo * 2;
-    for(int i{2}; i <= 11; i++){
-        modulo = cpf % 10;
+
+    //verifica se possui 11 digitos
+    while(cpf != 0){
         cpf /= 10;
-        somatorioValidaPenultimo += modulo * i;
-        somatorioValidaUltimo += modulo * (i + 1);
+        cont++;
     }
-	std::cout << "ultimo: " << ultimo << std::endl;
-	std::cout << "penultimo: " << penultimo << std::endl;
 
-    modulo = somatorioValidaPenultimo % 11;
-	std::cout << "modulo: " << modulo << std::endl;
-    if(modulo < 2){
-        if(penultimo != 0){
-			std::cout << "aqui" << std::endl;
-            return false;
-        }
-    }
-    else{
-        if(penultimo != 11 - modulo){
-			std::cout << "aqui2" << std::endl;
-            return false;
-        }
-    }
-    modulo = somatorioValidaUltimo % 11;
-	std::cout << "modulo: " << modulo << std::endl;
-    if(modulo < 2){
-        if(ultimo != 0){
-			std::cout << "aqui3" << std::endl;
-            return false;
-        }
-    }
-    else{
-        if(ultimo != 11 - modulo){
-			std::cout << "aqui4" << std::endl;
-            return false;
-        }
-    }
-	std::cout << "true" << std::endl;
+
+    if(cont != 11)
+        return false;
     return true;
+    
 }
 
 
