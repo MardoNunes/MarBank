@@ -35,7 +35,7 @@ int main(){
 				Cliente* ptrC{new Cliente}; //ponteiro para um cliente
 				ContaBancaria* ptrCB{new ContaBancaria}; //ponteiro para uma conta
 
-				c.criarConta(ptrC, ptrCB); //passo esses ponteiros e atribuo valores aonde apotam
+				c.criarConta(ptrC, ptrCB, bank); //passo esses ponteiros e atribuo valores aonde apotam
 
 				ptrC->adicionaConta(ptrCB); //cliente recebe sua conta criada
 

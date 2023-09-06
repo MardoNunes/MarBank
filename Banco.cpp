@@ -63,6 +63,15 @@ void Banco::transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, f
 	contaDestino->setSaldo(valor);
 }
 
+bool Banco::vereficaExistencia(const unsigned long cpf){
+	std::set<Cliente*>::iterator it{clientes.begin()};
+	for(; it != clientes.end(); it++){
+		std::cout << (*it)->getCpf() << std::endl;
+		if((*it)->getCpf() == cpf)
+			throw (int)2;
+	}
+	return true;
+}
 
 
 

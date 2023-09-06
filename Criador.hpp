@@ -10,7 +10,7 @@ class Criador : public ContaBancaria{
 		Criador();
 		~Criador();
 
-		void criarConta(Cliente* c, ContaBancaria* cb);
+		void criarConta(Cliente* c, ContaBancaria* cb, Banco* bank);
 };
 
 #endif

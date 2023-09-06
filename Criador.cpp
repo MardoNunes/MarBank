@@ -10,8 +10,9 @@
 Criador::Criador(){}
 Criador::~Criador(){}
 
-void Criador::criarConta(Cliente* c, ContaBancaria* cb){
+void Criador::criarConta(Cliente* c, ContaBancaria* cb, Banco* bank){
 	
+
 	std::string nome;
 	std::cout << "Seu nome: ";
 	std::cin.ignore();
@@ -24,6 +25,7 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	std::cin >> idade;
 	try{
 		c->setIdade(idade);
+
 	}catch(int& e){
 		std::cout << "Deve ser de maior!!" << std::endl;
 		exit(1);
@@ -34,10 +36,13 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb){
 	std::cout << "Seu CPF: ";
 	std::cin >> cpf;
 	try{
-		std::cout << "cpf: " << cpf << std::endl;
 		c->setCpf(cpf);	
+		bank->vereficaExistencia(cpf);
 	}catch(int& ex){
-		std::cout << "CPF invalido" << std::endl;
+		if(ex == 1)
+			std::cout << "CPF invalido" << std::endl;
+		else if(ex == 2)
+			std::cout << "CPF ja cadastrado" << std::endl;
 		exit(1);
 	}
 	std::cout << std::endl;
