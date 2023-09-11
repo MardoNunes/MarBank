@@ -9,8 +9,8 @@ class ContaBancaria{
 
 	public:
 		ContaBancaria();
-		ContaBancaria(const std::string nome, const unsigned long numeroConta, const float saldo);
-		ContaBancaria(const std::string nome);
+		ContaBancaria(const unsigned long numeroConta, const float saldo);
+		ContaBancaria(const float saldo);
 		~ContaBancaria();
 
 		unsigned long getNumeroConta() const;
@@ -19,14 +19,14 @@ class ContaBancaria{
 		float getSaldo() const;
 		void setSaldo(const float valor);	//atualiza o saldo!
 
-		std::string getNome() const;
-		void setNome(const std::string nome);
+		//std::string getNome() const;
+		//void setNome(const std::string nome);
 
 		void sacar(const float valor); 
 		void gerarNumero();
 
 	private:
-		std::string nome;
+		//std::string nome;
 		unsigned long numeroConta;	//numero realizado para transasções
 		float saldo;
 

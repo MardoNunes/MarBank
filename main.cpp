@@ -14,28 +14,26 @@
 using namespace std;
 
 int main(){
-	//BANCO DEVE SER INSTANCIADO AQ
+	
 	Banco* bank{new Banco};
-
-	//529.982.247-25 cpf valido
+	Criador* c{new Criador};
+	c->geraClientes(bank);
 
 
 	 Console::iniciar();
 	 short opc;
 	 std::cout << "Entre com sua opção: ";
 	 std::cin >> opc;
-	 std::cout << "opção: " << opc << std::endl;
 
 	while(opc != 4){
 		 switch(opc){
 		 	case 1:{
 				system("clear");
 		 		std::cout << "Criar conta:" << std::endl;
-				Criador c;
 				Cliente* ptrC{new Cliente}; //ponteiro para um cliente
 				ContaBancaria* ptrCB{new ContaBancaria}; //ponteiro para uma conta
 
-				c.criarConta(ptrC, ptrCB, bank); //passo esses ponteiros e atribuo valores aonde apotam
+				c->criarConta(ptrC, ptrCB, bank); //passo esses ponteiros e atribuo valores aonde apotam
 
 				ptrC->adicionaConta(ptrCB); //cliente recebe sua conta criada
 
@@ -107,6 +105,10 @@ int main(){
 							std::cin >> valor;
 							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
 
+							//libera a memoria
+							delete ptrCB2;
+							delete ptrC2;
+							
 							break;
 						}
 						case 5:
@@ -124,6 +126,9 @@ int main(){
 					
 				}
 
+				//libera a memoria
+				delete ptrC;
+				delete ptrCB;
 
 		 		break;
 			       }
@@ -251,6 +256,12 @@ int main(){
 	 	std::cin >> opc;
 		system("clear");
 	}
+
+
+
+	//libera a memoria
+	delete bank;
+	delete c;
 
 
 

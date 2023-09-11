@@ -3,7 +3,9 @@
 
 #include "ContaBancaria.hpp"
 #include "Pessoa.hpp"
-//class ContaBancaria;
+#include "Cliente.hpp"
+#include "Banco.hpp"
+
 
 class Criador : public ContaBancaria{
 	public:
@@ -11,6 +13,7 @@ class Criador : public ContaBancaria{
 		~Criador();
 
 		void criarConta(Cliente* c, ContaBancaria* cb, Banco* bank);
+		void geraClientes(Banco* const bank);
 };
 
 #endif

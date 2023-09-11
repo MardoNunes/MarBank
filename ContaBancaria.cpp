@@ -3,8 +3,8 @@
 
 
 ContaBancaria::ContaBancaria() {}
-ContaBancaria::ContaBancaria(const std::string nome): nome{nome}{}
-ContaBancaria::ContaBancaria(const std:: string nome, const unsigned long numeroConta, const float saldo): nome{nome}, numeroConta{numeroConta}, saldo{0}{
+ContaBancaria::ContaBancaria(const float saldo): saldo{saldo}{}
+ContaBancaria::ContaBancaria(const unsigned long numeroConta, const float saldo): numeroConta{numeroConta}, saldo{0}{
 }
 ContaBancaria::~ContaBancaria() {}
 
@@ -26,13 +26,13 @@ void ContaBancaria::setSaldo(const float valor){
 	this->saldo = this->saldo + valor;
 }
 
-std::string ContaBancaria::getNome() const{
-	return this->nome;
-}
+// std::string ContaBancaria::getNome() const{
+// 	return this->nome;
+// }
 
-void ContaBancaria::setNome(const std::string nome){
-	this->nome = nome;
-}
+// void ContaBancaria::setNome(const std::string nome){
+// 	this->nome = nome;
+// }
 
 void ContaBancaria::sacar(const float valor){
 	if(valor > this->saldo)
