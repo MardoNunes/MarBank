@@ -49,7 +49,7 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb, Banco* bank){
 	}
 	std::cout << std::endl;
 
-	float valor;
+	double valor;
 	std::cout << "Qual o valor inicial da conta: ";
 	std::cin >> valor;
 	cb->setSaldo(valor);
@@ -89,5 +89,11 @@ void Criador::geraClientes(Banco* const bank){
 	bank->adicionaCliente(c3);
 
 	
-	
+	//liberando memoria
+	delete c1;
+	delete c2;
+	delete c3;
+	delete cb1;
+	delete cb2;
+	delete cb3;
 }

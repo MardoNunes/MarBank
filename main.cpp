@@ -61,7 +61,7 @@ int main(){
 							std::cout << std::endl;
 							std::cout << "-----Realizar deposito-----" << std::endl;
 							std::cout << "Entre com o valor: ";
-							float valor;
+							double valor;
 							std::cin >> valor;
 							try{
 								ptrCB->setSaldo(valor);
@@ -79,7 +79,7 @@ int main(){
 							std::cout << std::endl;
 							std::cout << "-----Realizar saque---" << std::endl;
 							std::cout << "Entre com o valor: ";
-							float valor;
+							double valor;
 							std::cin >> valor;
 							try{
 								ptrCB->sacar(valor);
@@ -100,19 +100,22 @@ int main(){
 							ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
 							ContaBancaria* ptrCB2;
 							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
-							float valor;
+							double valor;
 							std::cout << "Entre com o valor da transferência: ";
 							std::cin >> valor;
 							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
 
 							//libera a memoria
 							delete ptrCB2;
-							delete ptrC2;
-							
+							delete ptrC2;							
 							break;
 						}
 						case 5:
 						{
+							//libera a memoria
+							delete ptrCB;
+							delete ptrC;
+
 							break;
 						}
 						default:
@@ -126,11 +129,8 @@ int main(){
 					
 				}
 
-				//libera a memoria
-				delete ptrC;
-				delete ptrCB;
-
 		 		break;
+
 			       }
 		 	case 2:
 			       {
@@ -168,7 +168,7 @@ int main(){
 								std::cout << std::endl;
 								std::cout << "-----Realizar deposito-----" << std::endl;
 								std::cout << "Entre com o valor: ";
-								float valor;
+								double valor;
 								std::cin >> valor;
 								try{
 									ptrCB->setSaldo(valor);
@@ -186,7 +186,7 @@ int main(){
 								std::cout << std::endl;
 								std::cout << "-----Realizar saque---" << std::endl;
 								std::cout << "Entre com o valor: ";
-								float valor;
+								double valor;
 								std::cin >> valor;
 								try{
 									ptrCB->sacar(valor);
@@ -209,7 +209,7 @@ int main(){
 								ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
 								ContaBancaria* ptrCB2;
 								ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
-								float valor;
+								double valor;
 								std::cout << "Entre com o valor da transferência: ";
 								std::cin >> valor;
 								bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
@@ -250,6 +250,7 @@ int main(){
 		 	default:
 		 		std::cout << "Entrada inválida! 1" << std::endl;
 		}
+	
 
 		Console::iniciar();
 		std::cout << "Entre com sua opção: ";
