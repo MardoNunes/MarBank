@@ -11,12 +11,9 @@ Banco::~Banco(){}
 
 //adiciona um cliente ao banco
 void Banco::adicionaCliente(Cliente* cliente){
-	//COLOCAR UMA EXCESSAO AQUI
     std::pair<std::set<Cliente*>::iterator, bool> result = clientes.insert(cliente);
-    if(result.second)
-	    std::cout << "sucesso" << std::endl;
-    else
-	    std::cout << "fracasso" << std::endl;
+    if(!result.second)
+		throw (int)3;
 
 }
 
@@ -67,7 +64,6 @@ void Banco::transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, d
 bool Banco::vereficaExistencia(const unsigned long cpf){
 	std::set<Cliente*>::iterator it{clientes.begin()};
 	for(; it != clientes.end(); it++){
-		std::cout << (*it)->getCpf() << std::endl;
 		if((*it)->getCpf() == cpf)
 			throw (int)2;
 	}

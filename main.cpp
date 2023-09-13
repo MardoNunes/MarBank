@@ -38,7 +38,15 @@ int main(){
 				ptrC->adicionaConta(ptrCB); //cliente recebe sua conta criada
 
 				//banco recebe o cliente
-				bank->adicionaCliente(ptrC);
+				try{
+					bank->adicionaCliente(ptrC);
+				}
+				catch(int& ex){
+					if(ex == 3){
+						std::cout << "Não foi possivel adicionar cliente!" << std::endl;
+						exit(1);
+					}
+				}
 
 				system("clear");
 				Console::menuConta();
@@ -46,7 +54,7 @@ int main(){
 				std::cin >> opc;
 				while(opc != 5){
 					switch(opc){
-						case 1:
+						case 1:	//mostra os dados da conta
 						{
 							system("clear");
 							std::cout << std::endl;
@@ -55,7 +63,7 @@ int main(){
 							std::cout << std::endl;
 							break;
 						}
-						case 2:
+						case 2:	//realiza deposito
 						{
 							system("clear");
 							std::cout << std::endl;
@@ -73,7 +81,7 @@ int main(){
 							}
 							break;
 						}
-						case 3:
+						case 3:	//realiza saque
 						{
 							system("clear");
 							std::cout << std::endl;
@@ -91,7 +99,7 @@ int main(){
 							}
 							break;
 						}
-						case 4:
+						case 4:	//realiza transferencia
 						{
 							unsigned long numeroConta;
 							const Cliente* ptrC2;
@@ -110,25 +118,18 @@ int main(){
 							delete ptrC2;							
 							break;
 						}
-						case 5:
-						{
-							//libera a memoria
-							delete ptrCB;
-							delete ptrC;
-
-							break;
-						}
 						default:
 							std::cout << "Entrada inválida!2" << std::endl;
 					}
 					
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
-					std::cin >> opc;
+					std::cin >> opc;	
 					system("clear");
 					
 				}
 
+				
 		 		break;
 
 			       }

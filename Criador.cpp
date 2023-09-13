@@ -57,6 +57,8 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb, Banco* bank){
 
 	//gera um numero aleatorio para a conta
 	cb->gerarNumero();
+
+	std::cout << "Conta criada com sucesso!!" << std::endl;
 }
 
 void Criador::geraClientes(Banco* const bank){
@@ -84,16 +86,19 @@ void Criador::geraClientes(Banco* const bank){
 
 
 	//adicionando os clientes ao banco
- 	bank->adicionaCliente(c1);
-	bank->adicionaCliente(c2);
-	bank->adicionaCliente(c3);
+	try{
+ 		bank->adicionaCliente(c1);
+		bank->adicionaCliente(c2);
+		bank->adicionaCliente(c3);
+	}
+	catch(int& ex){
+		if(ex == 3){
+			std::cout << "Não foi possivel adicionar cliente!" << std::endl;
+			exit(1);
+		}
+	}
 
 	
-	//liberando memoria
-	delete c1;
-	delete c2;
-	delete c3;
-	delete cb1;
-	delete cb2;
-	delete cb3;
+	
+	
 }
