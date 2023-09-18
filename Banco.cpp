@@ -21,10 +21,11 @@ void Banco::adicionaCliente(Cliente* cliente){
 void Banco::showClientes(){
    	unsigned short cont{1};
 	ContaBancaria* ptrC;
+	std::cout << "Clientes cadastrados: " << std::endl;
    	std::set<Cliente*>::iterator it{clientes.begin()};
     for(; it != clientes.end(); it++){
 		ptrC = (*it)->getConta();
- 		std::cout << "Cliente ["<< cont << "]" << " " <<(*it)->getNome() << " " << (*it)->getIdade() << " " << ptrC->getNumeroConta() << std::endl;
+ 		std::cout << "Cliente ["<< cont << "]" << " | " << "Nome: "<<(*it)->getNome() << " | " << "Idade: " <<(*it)->getIdade() << " | " << "N°: " <<ptrC->getNumeroConta() << std::endl;
 		cont++;
 	 
     }

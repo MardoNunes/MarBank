@@ -23,32 +23,39 @@ void Criador::criarConta(Cliente* c, ContaBancaria* cb, Banco* bank){
 	std::cout << std::endl;
 	
 	unsigned short idade;
-	std::cout << "Sua idade: ";
-	std::cin >> idade;
-	try{
-		c->setIdade(idade);
+	short ctrl;
+	do{
+		ctrl = 0;
+		std::cout << "Sua idade: ";
+		std::cin >> idade;
+		try{
+			c->setIdade(idade);
 
-	}catch(int& e){
-		std::cout << "Deve ser de maior!!" << std::endl;
-		exit(1);
-	}
-	std::cout << std::endl;
+		}catch(int& e){
+			std::cout << "Deve ser de maior!!" << std::endl;
+			ctrl = 1;
+		}
+		std::cout << std::endl;
+	}while(ctrl == 1);
 
 	unsigned long cpf;
-	std::cout << "Seu CPF: ";
-	std::cin >> cpf;
-	try{
-		c->setCpf(cpf);	
-		bank->vereficaExistencia(cpf);
-	}catch(int& ex){
-		if(ex == 1)
-			std::cout << "CPF invalido" << std::endl;
-		else if(ex == 2)
-			std::cout << "CPF ja cadastrado" << std::endl;
-		exit(1);
-	}
-	std::cout << std::endl;
-
+	do{
+		ctrl = 0;
+		std::cout << "Seu CPF: ";
+		std::cin >> cpf;
+		try{
+			c->setCpf(cpf);	
+			bank->vereficaExistencia(cpf);
+		}catch(int& ex){
+			if(ex == 1)
+				std::cout << "CPF invalido" << std::endl;
+			else if(ex == 2)
+				std::cout << "CPF ja cadastrado" << std::endl;
+			ctrl = 1;
+			
+		}
+		std::cout << std::endl;
+	}while(ctrl == 1);
 	double valor;
 	std::cout << "Qual o valor inicial da conta: ";
 	std::cin >> valor;

@@ -17,11 +17,12 @@ int main(){
 	
 	Banco* bank{new Banco};
 	Criador* c{new Criador};
-	c->geraClientes(bank);
+	c->geraClientes(bank);	//gera clientes para o banco, para que nao tenha so vc
 
 
 	 Console::iniciar();
 	 short opc;
+	 short opc2;
 	 std::cout << "Entre com sua opção: ";
 	 std::cin >> opc;
 
@@ -51,9 +52,9 @@ int main(){
 				system("clear");
 				Console::menuConta();
 				std::cout << "Entre com sua opção: ";
-				std::cin >> opc;
-				while(opc != 5){
-					switch(opc){
+				std::cin >> opc2;
+				while(opc2 != 5){
+					switch(opc2){
 						case 1:	//mostra os dados da conta
 						{
 							system("clear");
@@ -119,16 +120,15 @@ int main(){
 							break;
 						}
 						default:
-							std::cout << "Entrada inválida!2" << std::endl;
+							std::cout << "Entrada inválida!" << std::endl;
 					}
 					
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
-					std::cin >> opc;	
+					std::cin >> opc2;	
 					system("clear");
 					
 				}
-
 				
 		 		break;
 
@@ -142,7 +142,7 @@ int main(){
 				std::cout << "Entre com o seu CPF: ";	
 				std::cin >> cpf;
 				try{
-					ptrC = bank->buscaCliente(cpf);
+					ptrC = bank->buscaCliente(cpf);	//resgata o cliente pelo cpf
 					ContaBancaria* ptrCB;
 					ptrCB = ptrC->getConta();
 					       
@@ -151,9 +151,9 @@ int main(){
 					system("clear");
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
-					std::cin >> opc;
-					while(opc != 5){
-						switch(opc){
+					std::cin >> opc2;
+					while(opc2 != 5){
+						switch(opc2){
 							case 1:
 							{
 								system("clear");
@@ -223,15 +223,16 @@ int main(){
 							}
 							case 5:
 							{
+								//era para liberar a memoria aqui!
 								break;
 							}
 							default:
-								std::cout << "Entrada inválida!3" << std::endl;
+								std::cout << "Entrada inválida!" << std::endl;
 						}
 						
 						Console::menuConta();
 						std::cout << "Entre com sua opção: ";
-						std::cin >> opc;
+						std::cin >> opc2;
 						system("clear");
 						
 				}
@@ -247,9 +248,10 @@ int main(){
 			case 3:
 			{
 				bank->showClientes();
+				break;
 			}
 		 	default:
-		 		std::cout << "Entrada inválida! 1" << std::endl;
+		 		std::cout << "Entrada inválida! " << std::endl;
 		}
 	
 
