@@ -19,6 +19,7 @@ class Banco{
         const Cliente* buscaClienteNumeroConta(unsigned long numeroConta);
         void transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, double valor);
         bool vereficaExistencia(const unsigned long cpf);  //verifica se o cliente existe no banco
+        void showContaBancaria(const Cliente* ptrC, const ContaBancaria* ptrCB);
 
     private:
         //um set de ponteiros para clientes

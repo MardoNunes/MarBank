@@ -72,4 +72,10 @@ bool Banco::vereficaExistencia(const unsigned long cpf){
 }
 
 
+void Banco::showContaBancaria(const Cliente* ptrC, const ContaBancaria* ptrCB){
+	std::cout << "------Sua Conta-----" << std::endl;
+	std::cout << ptrC->getNome() << " " << ptrCB->getSaldo() << " " << ptrCB->getNumeroConta() << std::endl;
+	std::cout << std::endl;
+}
+
 

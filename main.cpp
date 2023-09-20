@@ -58,10 +58,7 @@ int main(){
 						case 1:	//mostra os dados da conta
 						{
 							system("clear");
-							std::cout << std::endl;
-							std::cout << "------Sua Conta-----" << std::endl;
-							std::cout << ptrC->getNome() << " " << ptrCB->getSaldo() << " " << ptrCB->getNumeroConta() << std::endl;
-							std::cout << std::endl;
+							bank->showContaBancaria(ptrC, ptrCB);
 							break;
 						}
 						case 2:	//realiza deposito
@@ -157,10 +154,7 @@ int main(){
 							case 1:
 							{
 								system("clear");
-								std::cout << std::endl;
-								std::cout << "------Sua Conta-----" << std::endl;
-								std::cout << ptrC->getNome() << " " << ptrCB->getSaldo() << " " << ptrCB->getNumeroConta() << std::endl;
-								std::cout << std::endl;
+								bank->showContaBancaria(ptrC, ptrCB);
 								break;
 							}
 							case 2:
