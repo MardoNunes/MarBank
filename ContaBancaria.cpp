@@ -4,7 +4,7 @@
 
 ContaBancaria::ContaBancaria() {}
 ContaBancaria::ContaBancaria(const double saldo): saldo{saldo}{}
-ContaBancaria::ContaBancaria(const unsigned long numeroConta, const double saldo): numeroConta{numeroConta}, saldo{0}{
+ContaBancaria::ContaBancaria(const unsigned long numeroConta, const double saldo): numeroConta{numeroConta}, saldo{0}, cofrinho{0}{
 }
 ContaBancaria::~ContaBancaria() {}
 
@@ -26,7 +26,6 @@ void ContaBancaria::setSaldo(const double valor){
 	this->saldo = this->saldo + valor;
 }
 
-
 void ContaBancaria::sacar(const double valor){
 	if(valor > this->saldo)
 		throw (int)1;
@@ -37,9 +36,24 @@ void ContaBancaria::gerarNumero(){
 	this->numeroConta = rand() % 100000;
 }
 
+void ContaBancaria::adicionaCofrinho(const double valor){
+	this->saldo = this->saldo - valor;
+	this->cofrinho = this->cofrinho + valor;
+}
 
+double ContaBancaria::getCofrinho() const{
+	return this->cofrinho;
+}
 
-
+void ContaBancaria::resgataCofrinho(const double valor){
+	
+	if(valor <= saldo){
+		this->cofrinho = this->cofrinho - valor;
+		this->saldo = this->saldo + valor;
+		return;
+	}
+	throw (int)1;
+}
 
 
 

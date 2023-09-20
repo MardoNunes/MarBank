@@ -14,7 +14,10 @@ void Console::menuConta(){
 	std::cout << "2 - Realizar deposito" << std::endl;
 	std::cout << "3 - Realizar saque" << std::endl;
 	std::cout << "4 - Realizar Transferencia" << std::endl;
-	std::cout << "5	- Sair" << std::endl;
+	std::cout << "5	- Adicionar Valor ao Cofrinho" << std::endl;
+	std::cout << "6 - Cofrinho" << std::endl;
+	std::cout << "7 - Resgatar do Cofrinho" << std::endl;
+	std::cout << "8 - Sair" << std::endl;
 
 }
 

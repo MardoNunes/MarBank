@@ -79,3 +79,14 @@ void Banco::showContaBancaria(const Cliente* ptrC, const ContaBancaria* ptrCB){
 }
 
 
+void Banco::setCofrinhos(){
+	std::set<Cliente*>::iterator it{clientes.begin()};
+	ContaBancaria* ptrCB;
+	for(; it != clientes.end(); it++){
+		ptrCB = (*it)->getConta();
+		if(ptrCB->getCofrinho() != 0)
+			ptrCB->adicionaCofrinho(Banco::rendimento);
+	}
+}
+
+

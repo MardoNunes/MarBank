@@ -21,9 +21,15 @@ class Banco{
         bool vereficaExistencia(const unsigned long cpf);  //verifica se o cliente existe no banco
         void showContaBancaria(const Cliente* ptrC, const ContaBancaria* ptrCB);
 
+        //pegará cada cofrinho dos clientes e colocará um valor constante.
+        void setCofrinhos();    //como se fosse CDI, ira render grana
+
+
     private:
         //um set de ponteiros para clientes
         std::set<Cliente*> clientes;
+        
+        constexpr static double rendimento{0.5};
        
 
 };

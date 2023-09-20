@@ -53,7 +53,7 @@ int main(){
 				Console::menuConta();
 				std::cout << "Entre com sua opção: ";
 				std::cin >> opc2;
-				while(opc2 != 5){
+				while(opc2 != 8){
 					switch(opc2){
 						case 1:	//mostra os dados da conta
 						{
@@ -101,20 +101,50 @@ int main(){
 						{
 							unsigned long numeroConta;
 							const Cliente* ptrC2;
+							ContaBancaria* ptrCB2;
 							std::cout << "Entre com o numero da conta: ";
 							std::cin >> numeroConta;
-							ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
-							ContaBancaria* ptrCB2;
-							ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
-							double valor;
-							std::cout << "Entre com o valor da transferência: ";
-							std::cin >> valor;
-							bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
-
+							try{
+								ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
+								ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
+								double valor;
+								std::cout << "Entre com o valor da transferência: ";
+								std::cin >> valor;
+								bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+							}catch(int& ex){
+								if(ex == 1)
+									std::cout << "Conta não encontrada!" << std::endl;
+							}
 							//libera a memoria
 							delete ptrCB2;
 							delete ptrC2;							
 							break;
+						}
+						case 5:	//adiciona valor ao cofringo
+						{
+							std::cout << "Entre com o valor: ";
+							double valor;
+							std::cin >> valor;
+							ptrCB->adicionaCofrinho(valor);
+							break;
+						}
+						case 6:	//mostra o valor do cofrinho
+						{
+							std::cout << "Valor do cofrinho: " << ptrCB->getCofrinho() << std::endl;
+							break;
+						}
+						case 7:	//resgata valor no cofrinho
+						{
+							std::cout << "Entre com o valor a ser resgatado: ";
+							double resgatar;
+							std::cin >> resgatar;
+							try{
+								ptrCB->resgataCofrinho(resgatar);
+							}
+							catch(int& ex){
+								if(ex == 1)
+									std::cout << "Valor inválido!" << std::endl;
+							}
 						}
 						default:
 							std::cout << "Entrada inválida!" << std::endl;
@@ -149,7 +179,7 @@ int main(){
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
 					std::cin >> opc2;
-					while(opc2 != 5){
+					while(opc2 != 8){
 						switch(opc2){
 							case 1:
 							{
@@ -197,12 +227,12 @@ int main(){
 							{
 							unsigned long numeroConta;
 							const Cliente* ptrC2;
+							ContaBancaria* ptrCB2;
 							std::cout << "Entre com o numero da conta: ";
 							std::cin >> numeroConta;
 							
 							try{
 								ptrC2 = bank->buscaClienteNumeroConta(numeroConta);	//busca o cliente pelo numero da conta
-								ContaBancaria* ptrCB2;
 								ptrCB2 = ptrC2->getConta();	//pega a conta do cliente encontrado
 								double valor;
 								std::cout << "Entre com o valor da transferência: ";
@@ -213,13 +243,38 @@ int main(){
 									std::cout << "Conta não encontrada!" << std::endl;
 							}
 
+							//libera a memoria
+							delete ptrCB2;
+							delete ptrC2;
+
 							break;
 							}
-							case 5:
+							case 5:	//adiciona valor ao cofringo
 							{
-								//era para liberar a memoria aqui!
+								std::cout << "Entre com o valor: ";
+								double valor;
+								std::cin >> valor;
+								ptrCB->adicionaCofrinho(valor);
 								break;
 							}
+							case 6:	//mostra o valor do cofrinho
+							{
+								std::cout << "Valor do cofrinho: " << ptrCB->getCofrinho() << std::endl;
+								break;
+							}
+							case 7:	//resgata valor no cofrinho
+						{
+							std::cout << "Entre com o valor a ser resgatado: ";
+							double resgatar;
+							std::cin >> resgatar;
+							try{
+								ptrCB->resgataCofrinho(resgatar);
+							}
+							catch(int& ex){
+								if(ex == 1)
+									std::cout << "Valor inválido!" << std::endl;
+							}
+						}
 							default:
 								std::cout << "Entrada inválida!" << std::endl;
 						}
@@ -248,7 +303,7 @@ int main(){
 		 		std::cout << "Entrada inválida! " << std::endl;
 		}
 	
-
+		bank->setCofrinhos();
 		Console::iniciar();
 		std::cout << "Entre com sua opção: ";
 	 	std::cin >> opc;

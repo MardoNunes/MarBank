@@ -27,9 +27,15 @@ class ContaBancaria{
 		void sacar(const double valor); 
 		void gerarNumero();
 
+		
+		double getCofrinho() const;
+		void adicionaCofrinho(const double valor);
+		void resgataCofrinho(const double resgatar);
+
 	private:
 		unsigned long numeroConta;	//numero realizado para transasções
 		double saldo;
+		double cofrinho;	//cofrinho sera uma valor que ira ser acrescentado enquanto estiver na conta
 
 };
 
