@@ -30,6 +30,7 @@ class ContaBancaria{
 		
 		double getCofrinho() const;
 		void adicionaCofrinho(const double valor);
+		void rendeCofrinho(const double valor);
 		void resgataCofrinho(const double resgatar);
 
 	private:

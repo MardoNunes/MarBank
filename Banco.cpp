@@ -85,7 +85,7 @@ void Banco::setCofrinhos(){
 	for(; it != clientes.end(); it++){
 		ptrCB = (*it)->getConta();
 		if(ptrCB->getCofrinho() != 0)
-			ptrCB->adicionaCofrinho(Banco::rendimento);
+			ptrCB->rendeCofrinho(Banco::rendimento);
 	}
 }
 

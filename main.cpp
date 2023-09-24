@@ -303,7 +303,7 @@ int main(){
 		 		std::cout << "Entrada inválida! " << std::endl;
 		}
 	
-		bank->setCofrinhos();
+		bank->setCofrinhos();	//rende um quantia em todos o cofrinhos
 		Console::iniciar();
 		std::cout << "Entre com sua opção: ";
 	 	std::cin >> opc;

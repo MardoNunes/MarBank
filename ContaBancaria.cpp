@@ -41,6 +41,10 @@ void ContaBancaria::adicionaCofrinho(const double valor){
 	this->cofrinho = this->cofrinho + valor;
 }
 
+void ContaBancaria::rendeCofrinho(const double valor){
+	this->cofrinho = this->cofrinho + valor;
+}
+
 double ContaBancaria::getCofrinho() const{
 	return this->cofrinho;
 }
