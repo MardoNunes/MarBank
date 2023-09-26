@@ -51,7 +51,7 @@ double ContaBancaria::getCofrinho() const{
 
 void ContaBancaria::resgataCofrinho(const double valor){
 	
-	if(valor <= saldo){
+	if(valor <= cofrinho){
 		this->cofrinho = this->cofrinho - valor;
 		this->saldo = this->saldo + valor;
 		return;
