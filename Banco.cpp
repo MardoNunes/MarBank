@@ -90,3 +90,12 @@ void Banco::setCofrinhos(){
 }
 
 
+void Banco::cleanClientes(){
+	//vou dar free em todos os clientes
+	std::set<Cliente*>::iterator it{clientes.begin()};
+	for(; it != clientes.end(); it++){
+		delete (*it);
+	}
+
+}
+

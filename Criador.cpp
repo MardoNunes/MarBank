@@ -104,8 +104,5 @@ void Criador::geraClientes(Banco* const bank){
 			exit(1);
 		}
 	}
-
-	
-	
 	
 }

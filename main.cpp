@@ -317,6 +317,7 @@ int main(){
 
 
 	//libera a memoria
+	bank->cleanClientes();
 	delete bank;
 	delete c;
 

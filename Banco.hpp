@@ -24,6 +24,8 @@ class Banco{
         //pegará cada cofrinho dos clientes e colocará um valor constante.
         void setCofrinhos();    //como se fosse CDI, ira render grana
 
+        void cleanClientes();    //limpa o set de clientes
+
 
     private:
         //um set de ponteiros para clientes
