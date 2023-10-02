@@ -15,6 +15,9 @@ class Cliente : public Pessoa{
 		void adicionaConta( ContaBancaria* conta);
 		ContaBancaria* getConta() const;
 
+		//limpando memoria
+		void freeConta();
+
 	
 	private:
 		ContaBancaria* conta;	//ponteiro para a conta bancaria do cliente

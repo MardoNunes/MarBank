@@ -25,6 +25,7 @@ class Banco{
         void setCofrinhos();    //como se fosse CDI, ira render grana
 
         void cleanClientes();    //limpa o set de clientes
+        void cleanContasBancarias();
 
 
     private:

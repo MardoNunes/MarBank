@@ -25,7 +25,7 @@ void Banco::showClientes(){
    	std::set<Cliente*>::iterator it{clientes.begin()};
     for(; it != clientes.end(); it++){
 		ptrC = (*it)->getConta();
- 		std::cout << "Cliente ["<< cont << "]" << " | " << "Nome: "<<(*it)->getNome() << " | " << "Idade: " <<(*it)->getIdade() << " | " << "N°: " <<ptrC->getNumeroConta() << std::endl;
+ 		std::cout << "Cliente ["<< cont << "]" << "\tNome: "<<(*it)->getNome() << "\t|" << "\tIdade: " <<(*it)->getIdade() << "\t|" << "\tN°: " <<ptrC->getNumeroConta() << std::endl;
 		cont++;
 	 
     }
@@ -74,7 +74,7 @@ bool Banco::vereficaExistencia(const unsigned long cpf){
 
 void Banco::showContaBancaria(const Cliente* ptrC, const ContaBancaria* ptrCB){
 	std::cout << "------Sua Conta-----" << std::endl;
-	std::cout << ptrC->getNome() << " " << ptrCB->getSaldo() << " " << ptrCB->getNumeroConta() << std::endl;
+	std::cout << ptrC->getNome() << "\tsaldo: " << ptrCB->getSaldo() << "\tN°: " << ptrCB->getNumeroConta() << std::endl;
 	std::cout << std::endl;
 }
 
@@ -90,12 +90,21 @@ void Banco::setCofrinhos(){
 }
 
 
+//vou dar free em todos os clientes
 void Banco::cleanClientes(){
-	//vou dar free em todos os clientes
+	
 	std::set<Cliente*>::iterator it{clientes.begin()};
 	for(; it != clientes.end(); it++){
 		delete (*it);
 	}
 
+}
+
+void Banco::cleanContasBancarias(){
+
+	std::set<Cliente*>::iterator it{clientes.begin()};
+	for(; it != clientes.end(); it++){
+		(*it)->freeConta();
+	}
 }
 

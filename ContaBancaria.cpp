@@ -37,8 +37,13 @@ void ContaBancaria::gerarNumero(){
 }
 
 void ContaBancaria::adicionaCofrinho(const double valor){
-	this->saldo = this->saldo - valor;
-	this->cofrinho = this->cofrinho + valor;
+	if(valor <= this->saldo){
+		this->saldo = this->saldo - valor;
+		this->cofrinho = this->cofrinho + valor;
+	}
+	else{
+		throw (int)1;
+	}
 }
 
 void ContaBancaria::rendeCofrinho(const double valor){

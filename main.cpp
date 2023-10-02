@@ -129,7 +129,13 @@ int main(){
 							std::cout << "Entre com o valor: ";
 							double valor;
 							std::cin >> valor;
-							ptrCB->adicionaCofrinho(valor);
+							try{
+								ptrCB->adicionaCofrinho(valor);
+							}
+							catch(int& ex){
+								if(ex == 1)
+									std::cout << "Valor inválido!" << std::endl;
+							}
 							break;
 						}
 						case 6:	//mostra o valor do cofrinho
@@ -258,7 +264,13 @@ int main(){
 								std::cout << "Entre com o valor: ";
 								double valor;
 								std::cin >> valor;
-								ptrCB->adicionaCofrinho(valor);
+								try{
+									ptrCB->adicionaCofrinho(valor);
+								}
+								catch(int& ex){
+									if(ex == 1)
+										std::cout << "Valor inválido!" << std::endl;
+								}
 								break;
 							}
 							case 6:	//mostra o valor do cofrinho
@@ -317,6 +329,7 @@ int main(){
 
 
 	//libera a memoria
+	bank->cleanContasBancarias();
 	bank->cleanClientes();
 	delete bank;
 	delete c;
