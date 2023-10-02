@@ -114,14 +114,17 @@ int main(){
 								double valor;
 								std::cout << "Entre com o valor da transferência: ";
 								std::cin >> valor;
-								bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+								try{
+									bank->transacao(ptrCB, ptrCB2, valor);	//realizo a transação!
+								}
+								catch(int& exTran){
+									if(exTran == 1)
+										std::cout << "Valor de Transação inválido!" << std::endl;
+								}
 							}catch(int& ex){
 								if(ex == 1)
 									std::cout << "Conta não encontrada!" << std::endl;
-							}
-							//libera a memoria
-							delete ptrCB2;
-							delete ptrC2;							
+							}						
 							break;
 						}
 						case 5:	//adiciona valor ao cofringo
@@ -253,9 +256,6 @@ int main(){
 									std::cout << "Conta não encontrada!" << std::endl;
 							}
 
-							//libera a memoria
-							delete ptrCB2;
-							delete ptrC2;
 
 							break;
 							}

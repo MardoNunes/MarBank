@@ -57,9 +57,14 @@ const Cliente* Banco::buscaClienteNumeroConta(unsigned long numeroConta){
 
 
 void Banco::transacao(ContaBancaria* contaOrigem, ContaBancaria* contaDestino, double valor){
-	contaOrigem->sacar(valor);
-	contaDestino->setSaldo(valor);
-	std::cout << "Transação realizada com sucesso!" << std::endl;
+	if(valor >= 0){
+		contaOrigem->sacar(valor);
+		contaDestino->setSaldo(valor);
+		std::cout << "Transação realizada com sucesso!" << std::endl;
+	}
+	else{
+		throw (int)1;
+	}
 }
 
 bool Banco::vereficaExistencia(const unsigned long cpf){
