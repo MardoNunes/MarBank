@@ -14,8 +14,6 @@
 using namespace std;
 
 
-//89383
-
 
 int main(){
 	
@@ -24,7 +22,7 @@ int main(){
 	c->geraClientes(bank);	//gera clientes para o banco, para que nao tenha so vc
 
 
-	 Console::iniciar();
+	 Console::iniciar();	//é o menu inicial
 	 short opc;
 	 short opc2;
 	 std::cout << "Entre com sua opção: ";
@@ -32,7 +30,7 @@ int main(){
 
 	while(opc != 4){
 		 switch(opc){
-		 	case 1:{
+		 	case 1:{	//Criar uma conta
 				system("clear");
 		 		std::cout << "Criar conta:" << std::endl;
 				Cliente* ptrC{new Cliente}; //ponteiro para um cliente
@@ -53,8 +51,9 @@ int main(){
 					}
 				}
 
+				//assim que criar a conta ele é automaticamente logado!
 				system("clear");
-				Console::menuConta();
+				Console::menuConta();	//menu da conta logada
 				std::cout << "Entre com sua opção: ";
 				std::cin >> opc2;
 				while(opc2 != 8){
@@ -173,7 +172,7 @@ int main(){
 		 		break;
 
 			       }
-		 	case 2:
+		 	case 2:			//caso para fazer logim em uma conta
 			       {
 			
 		 		std::cout << "Login: " << std::endl;
@@ -186,21 +185,20 @@ int main(){
 					ContaBancaria* ptrCB;
 					ptrCB = ptrC->getConta();
 					       
-					//colocar tela menuContaBancaria
-					//tratar as entradas
+					//caso exista a conta ele é logado!
 					system("clear");
 					Console::menuConta();
 					std::cout << "Entre com sua opção: ";
 					std::cin >> opc2;
 					while(opc2 != 8){
 						switch(opc2){
-							case 1:
+							case 1:	//mostra conta bancaria
 							{
 								system("clear");
 								bank->showContaBancaria(ptrC, ptrCB);
 								break;
 							}
-							case 2:
+							case 2:		//realiza deposito
 							{
 								system("clear");
 								std::cout << std::endl;
@@ -218,7 +216,7 @@ int main(){
 								}
 								break;
 							}
-							case 3:
+							case 3:		//realiza saque
 							{
 								system("clear");
 								std::cout << std::endl;
@@ -236,7 +234,7 @@ int main(){
 								}
 								break;
 							}
-							case 4:
+							case 4:		//realiza uma transferencia
 							{
 							unsigned long numeroConta;
 							const Cliente* ptrC2;
@@ -310,7 +308,7 @@ int main(){
 				}
 				break;
 			       }
-			case 3:
+			case 3:		//lista todos os clientes do banco: nome, idade, e numero da conta
 			{
 				bank->showClientes();
 				break;

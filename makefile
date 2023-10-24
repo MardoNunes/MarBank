@@ -1,5 +1,5 @@
 parametrosCompilacao=-Wall -g #-Wshadow
-nomePrograma=main
+nomePrograma=MarBank
 
 all: $(nomePrograma)
 
